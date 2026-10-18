@@ -16,6 +16,7 @@ sdist/
 var/
 wheels/
 *.egg-info/
+captures/
 .installed.cfg
 *.egg
 PIPFILE.lock
@@ -52,3 +53,5 @@ Thumbs.db
 
 # Vercel
 .vercel/*
+.venv/
+captures/
