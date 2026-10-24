@@ -9,7 +9,7 @@ pip install -r requirements.txt
 ```
 
 ## Credentials
-Put your own Google OAuth Desktop client file in this folder as `credentials.json`. **Never commit it.**
+Put your own Google OAuth Desktop client file in this folder as `credentials.json`. **Never commit it.** The app reads `GOOGLE_CREDENTIALS_FILE` and `GOOGLE_TOKEN_FILE` from the environment if they are set, and otherwise uses `credentials.json` and `token.json` in this folder.
 
 ## Login
 Run `python auth.py` once; a browser opens for authentication.

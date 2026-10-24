@@ -2,7 +2,11 @@
   "mcpServers": {
     "calendar": {
       "command": "C:/path/to/week2/.venv/Scripts/python.exe",
-      "args": ["C:/path/to/week2/server.py"]
+      "args": ["C:/path/to/week2/server.py"],
+      "env": {
+        "GOOGLE_CREDENTIALS_FILE": "C:/path/to/week2/credentials.json",
+        "GOOGLE_TOKEN_FILE": "C:/path/to/week2/token.json"
+      }
     }
   }
 }

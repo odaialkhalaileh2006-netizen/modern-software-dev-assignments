@@ -14,6 +14,7 @@
 #2 2) we need to save the refresh token in a file to be able to refresh the access token without user interaction.
 
 from pathlib import Path
+import os
 
 from google.auth.exceptions import RefreshError
 from google.auth.transport.requests import Request
@@ -21,7 +22,8 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 
 SCOPES = ["https://www.googleapis.com/auth/calendar.events"]
-TOKEN_FILE = Path(__file__).parent / "token.json"
+CREDENTIALS_FILE = Path(os.environ.get("GOOGLE_CREDENTIALS_FILE", Path(__file__).parent / "credentials.json"))
+TOKEN_FILE = Path(os.environ.get("GOOGLE_TOKEN_FILE", Path(__file__).parent / "token.json"))
 
 class AuthRequired(Exception):
     """Raised when authentication is required but cannot be performed automatically."""
@@ -49,7 +51,7 @@ def get_credentials(interactive=False) :
                 "Ask the user to run `python auth.py` in the week2 folder, then try again."
             )
         flow=InstalledAppFlow.from_client_secrets_file(
-            str(Path(__file__).parent / "credentials.json"), SCOPES)
+            str(CREDENTIALS_FILE), SCOPES)
         creds= flow.run_local_server(port=0)
         TOKEN_FILE.write_text(creds.to_json())
 
