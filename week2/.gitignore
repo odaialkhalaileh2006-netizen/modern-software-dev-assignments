@@ -1,0 +1,7 @@
+.env
+credentials.json
+token.json
+.mcp.json
+__pycache__/
+.venv/
+.claude/

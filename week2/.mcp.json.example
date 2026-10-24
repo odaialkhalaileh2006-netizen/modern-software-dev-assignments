@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "calendar": {
+      "command": "C:/path/to/week2/.venv/Scripts/python.exe",
+      "args": ["C:/path/to/week2/server.py"]
+    }
+  }
+}
