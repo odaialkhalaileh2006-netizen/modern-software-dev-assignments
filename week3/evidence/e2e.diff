@@ -1,0 +1,20 @@
+﻿diff --git a/test/plugin/isLeapYear.test.js b/test/plugin/isLeapYear.test.js
+index 746fb9e..28e49c7 100644
+--- a/test/plugin/isLeapYear.test.js
++++ b/test/plugin/isLeapYear.test.js
+@@ -16,3 +16,15 @@ it('IsLeapYear', () => {
+   expect(dayjs('20000101').isLeapYear()).toBe(true)
+   expect(dayjs('2100-01-01').isLeapYear()).toBe(false)
+ })
++
++it('returns true for year divisible by 4 but not by 100', () => {
++  expect(dayjs('2004-01-01').isLeapYear()).toBe(true)
++  expect(dayjs('2020-01-01').isLeapYear()).toBe(true)
++  expect(dayjs('1996-01-01').isLeapYear()).toBe(true)
++})
++
++it('returns false for year not divisible by 4', () => {
++  expect(dayjs('2001-01-01').isLeapYear()).toBe(false)
++  expect(dayjs('2002-01-01').isLeapYear()).toBe(false)
++  expect(dayjs('2003-01-01').isLeapYear()).toBe(false)
++})

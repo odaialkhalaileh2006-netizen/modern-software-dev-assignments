@@ -1,0 +1,14 @@
+﻿diff --git a/test/plugin/isBetween.test.js b/test/plugin/isBetween.test.js
+index 0f794c9..31baee0 100644
+--- a/test/plugin/isBetween.test.js
++++ b/test/plugin/isBetween.test.js
+@@ -686,3 +686,9 @@ test('is between milliseconds inclusivity', () => {
+ 
+   expect(+m).toEqual(+mCopy, 'isBetween second should not change moment')
+ })
++test('same date as both bounds', () => {
++  const m = dayjs(new Date(2011, 3, 2, 3, 4, 5, 10))
++  const same = dayjs(new Date(2011, 3, 2, 3, 4, 5, 10))
++
++  expect(m.isBetween(same, same, null, '()')).toBe(false)
++})
